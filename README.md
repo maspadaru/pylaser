@@ -1,8 +1,8 @@
 # Laser
 
 ## How to run the evaluations?
-Before running the evaluations, please make sure that you have [Pypy JIT compiler](https://pypy.org/). Then,
-to run the evaluations in the paper, you can simply run the following command:
+Before running the evaluations, please make sure that you have [Pypy JIT compiler](https://pypy.org/). 
+To run the evaluations you can simply execute the following command:
 
 ```
 ./bench.sh
