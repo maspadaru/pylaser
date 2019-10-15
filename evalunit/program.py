@@ -9,6 +9,7 @@ import json
 
 class Program:
 	def __init__(self, rules_string, stream):
+                self.eval_secs = 0
 		self.rules = list()
 		self.activated_leaves = dict() # map from predicate to leaf nodes
 		self.activated_rules  = dict() # map from predicate to rules
@@ -244,10 +245,15 @@ class Program:
 
 		ret = False
 		tuples = {}
+
 		if self.stream.hasTimePoint(now):
+                        facts = self.stream.get(now)
+
+                        start = time.time()
+
 			self.cleanUp(now, self.tupleCounter)
 			for strata in self.programStratas:
-				ret |= self.evaluate_strata(strata)
+				ret |= self.evaluate_strata(strata, facts)
 			#res = self.runRulesOnInputData()
 			#self.recursiveEvaluation(self.rules, self.stream, res, now)
 
@@ -255,8 +261,16 @@ class Program:
 			#tuples = {}
 			self.tupleCounter += self.stream.getNumberOfTuplesAt(now)
 
+                        end = time.time()
+                        elapsed_secs = end - start
+                        self.eval_secs += elapsed_secs
+
 			return ret, tuples
 		return False, {}
+        
+        def get_eval_secs(self):
+            return self.eval_secs
+
 	############################################
 	def fire_rule(self, rule):
 		res = rule.holdsAt(self.currentTime, self.tupleCounter, self.stream.timeLine)
@@ -270,9 +284,9 @@ class Program:
 	def acceptNegAtom(self, node):
 		assert False, "Not implemented yet"
 	############################################
-	def evaluate_strata(self, strata):
+	def evaluate_strata(self, strata, facts):
 		now = self.currentTime
-		_stream = self.stream.get(now)
+		_stream = facts
 		res = False
 		for predInfo in strata:
 			pred = predInfo[0]
