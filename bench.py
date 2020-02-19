@@ -28,8 +28,9 @@ def get_rules(prog_name, win_size):
         ]
     elif (prog_name == "PROB"):
         rules = [
-            "".join(["prob(X1, X2) :- p(X1, X2) and q(X1, X2)"]),
-            "".join(["warn(X1, X2) :- time_win(", win_size, ",0,1,diamond(prob(X1, X2)))"]),
+            "prob(X1, X2) :- p(X1, X2) and q(X1, X2)",
+            # "".join(["warn(X1, X2) :- time_win(", win_size, ",0,1,diamond(prob(X1, X2)))"]),
+            "warn(X1, X2) :- prob(X1, X2)",
             "".join(["error(X1, X2) :- time_win(", win_size, ",0,1,box(prob(X1, X2)))"]),
         ]
     return rules 
@@ -54,10 +55,10 @@ def run(rules, stream_file):
     elapsed_secs = end - start
     eval_secs = prog.get_eval_secs()
     throughput = (end_time * fact_count * 1.0) / elapsed_secs
-    print("Endtime: %d, facts: %d, conclusions: %d" % (end_time, fact_count, conclusion_count))
-    print("Evaluation time (sec) = %f" % eval_secs )
-    print("Elapsed time (sec) = %f" % elapsed_secs )
-    print("Throughput (facts/sec) = %f" % throughput )
+    print("Endtime: %d" % end_time)
+    print("Facts: %d, Conclusions: %d" % (fact_count, conclusion_count))
+    print("Time: %f seconds" % elapsed_secs )
+    print("Throughput: %f facts/sec" % throughput )
 
 def main():
     if (len(sys.argv) < 4):
@@ -67,10 +68,10 @@ def main():
         win_size = sys.argv[2]
         stream_path = sys.argv[3]
         rules = get_rules(prog_name, win_size)
-        print("Running: %s, win_size: %s" % (prog_name, win_size))
+        print("Program: %s, win_size: %s" % (prog_name, win_size))
+        print("Input: %s" % stream_path)
         run(rules, stream_path)
         print("************************************************************")
-        print("")
         print("")
 
 if __name__ == '__main__':
