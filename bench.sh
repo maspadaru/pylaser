@@ -4,12 +4,12 @@
 
 echo "============= 1. LARS - formulas ============="
 pypy bench.py ATOM  0 ../data/stream_1k_1k_1_2.txt  
-pypy bench.py CONJ  0 ../data/stream_1k_1k_2_2.txt 
-pypy bench.py DIA  32 ../data/stream_1k_1k_1_2.txt  
 pypy bench.py BOX  32 ../data/stream_1k_1k_1_2.txt  
+pypy bench.py DIA  32 ../data/stream_1k_1k_1_2.txt  
+pypy bench.py CONJ  0 ../data/stream_1k_1k_2_2.txt 
 
 echo "============= 2. LARS - Math ============="
-pypy bench.py COMP  0 ../data/stream_1k_1k_1_2.txt  
+pypy bench.py COMP  0 ../data/stream_100_100_1_2.txt  
 
 #echo "============= 3. LARS - Laser++ Window Size ============="
 #pypy bench.py PROB  8 ../data/stream_1k_1k_2_2.txt 
@@ -27,8 +27,8 @@ pypy bench.py COMP  0 ../data/stream_1k_1k_1_2.txt
 
 echo "============= XX. Types of programs ============="
 pypy bench.py PROB 64 ../data/stream_1k_1k_2_2.txt
-pypy bench.py SNOW 64 ../data/stream_1k_1k_2_2.txt
 pypy bench.py TRFC 64 ../data/stream_1k_1k_2_2.txt
+pypy bench.py SNOW 64 ../data/stream_1k_1k_2_2.txt
 
 # Misc
 #pypy bench.py ALGB  0 ../data/stream_1k_1k_1_2.txt  

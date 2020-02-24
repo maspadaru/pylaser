@@ -77,7 +77,7 @@ def run(rules, stream_file):
     end = time.time()
     elapsed_secs = end - start
     eval_secs = prog.get_eval_secs()
-    throughput = (end_time * fact_count * 1.0) / elapsed_secs
+    throughput = (fact_count * 1.0) / elapsed_secs
     print("Endtime: %d" % end_time)
     print("Facts: %d, Conclusions: %d" % (fact_count, conclusion_count))
     print("Time: %f seconds" % elapsed_secs )

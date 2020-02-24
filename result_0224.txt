@@ -3,41 +3,41 @@ Program: ATOM, win_size: 0
 Input: ../data/stream_1k_1k_1_2.txt
 Endtime: 999
 Facts: 1000000, Conclusions: 1000000
-Time: 2.010131 seconds
-Throughput: 496982564.078234 facts/sec
-************************************************************
-
-Program: CONJ, win_size: 0
-Input: ../data/stream_1k_1k_2_2.txt
-Endtime: 999
-Facts: 1000000, Conclusions: 500000
-Time: 3.022056 seconds
-Throughput: 330569640.679419 facts/sec
-************************************************************
-
-Program: DIA, win_size: 32
-Input: ../data/stream_1k_1k_1_2.txt
-Endtime: 999
-Facts: 1000000, Conclusions: 1000000
-Time: 8.918693 seconds
-Throughput: 112011930.375100 facts/sec
+Time: 2.042097 seconds
+Throughput: 489692.681154 facts/sec
 ************************************************************
 
 Program: BOX, win_size: 32
 Input: ../data/stream_1k_1k_1_2.txt
 Endtime: 999
 Facts: 1000000, Conclusions: 1000000
-Time: 16.115601 seconds
-Throughput: 61989620.871640 facts/sec
+Time: 15.979872 seconds
+Throughput: 62578.724081 facts/sec
+************************************************************
+
+Program: DIA, win_size: 32
+Input: ../data/stream_1k_1k_1_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1000000
+Time: 8.580860 seconds
+Throughput: 116538.433668 facts/sec
+************************************************************
+
+Program: CONJ, win_size: 0
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 500000
+Time: 2.926591 seconds
+Throughput: 341694.465008 facts/sec
 ************************************************************
 
 ============= 2. LARS - Math =============
 Program: COMP, win_size: 0
-Input: ../data/stream_1k_1k_1_2.txt
-Endtime: 999
-Facts: 1000000, Conclusions: 2000000
-Time: 6.344430 seconds
-Throughput: 157460954.688959 facts/sec
+Input: ../data/stream_100_100_1_2.txt
+Endtime: 99
+Facts: 10000, Conclusions: 20000
+Time: 0.179618 seconds
+Throughput: 55673.670280 facts/sec
 ************************************************************
 
 ============= XX. Types of programs =============
@@ -45,23 +45,23 @@ Program: PROB, win_size: 64
 Input: ../data/stream_1k_1k_2_2.txt
 Endtime: 999
 Facts: 1000000, Conclusions: 1500000
-Time: 24.848816 seconds
-Throughput: 40203122.503412 facts/sec
-************************************************************
-
-Program: SNOW, win_size: 64
-Input: ../data/stream_1k_1k_2_2.txt
-Endtime: 999
-Facts: 1000000, Conclusions: 500000
-Time: 377.691924 seconds
-Throughput: 2645012.871334 facts/sec
+Time: 25.276733 seconds
+Throughput: 39562.074858 facts/sec
 ************************************************************
 
 Program: TRFC, win_size: 64
 Input: ../data/stream_1k_1k_2_2.txt
 Endtime: 999
 Facts: 1000000, Conclusions: 1500000
-Time: 25.154230 seconds
-Throughput: 39714990.095966 facts/sec
+Time: 25.260843 seconds
+Throughput: 39586.960676 facts/sec
+************************************************************
+
+Program: SNOW, win_size: 64
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 500000
+Time: 376.997447 seconds
+Throughput: 2652.537856 facts/sec
 ************************************************************
 
