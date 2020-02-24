@@ -7,6 +7,7 @@ from stream.file_stream import FileStream
 from evalunit.program import Program
 
 OUTPUT = False 
+# OUTPUT = True 
 
 def get_rules(prog_name, win_size):
     rules = []
@@ -26,12 +27,34 @@ def get_rules(prog_name, win_size):
         rules = [
             "".join(["a(X1, X2) :- time_win(", win_size, ",0,1,box(p(X1, X2)))"]),
         ]
+    elif (prog_name == "ALGB"):
+        rules = [
+            "a(Y) :- p(X1, X2) and MATH(+,Y,X1,99)",
+        ]
+    elif (prog_name == "COMP"):
+        rules = [
+            "a(X1, X2) :- p(X1, X2) and COMP(>=,X1,X2)",
+            "b(X1, X2) :- p(X1, X2) and COMP(<=,X1,X2)",
+            "c(X1, X2) :- p(X1, X2) and COMP(>,X1,X2)",
+            "d(X1, X2) :- p(X1, X2) and COMP(<,X1,X2)",
+        ]
     elif (prog_name == "PROB"):
         rules = [
-            "prob(X1, X2) :- p(X1, X2) and q(X1, X2)",
-            # "".join(["warn(X1, X2) :- time_win(", win_size, ",0,1,diamond(prob(X1, X2)))"]),
-            "warn(X1, X2) :- prob(X1, X2)",
-            "".join(["error(X1, X2) :- time_win(", win_size, ",0,1,box(prob(X1, X2)))"]),
+            "".join(["warn(X1, X2) :- time_win(", win_size, ",0,1,diamond(p(X1, X2)))"]),
+            "".join(["error(X1, X2) :- time_win(", win_size, ",0,1,box(q(X1, X2)))"]),
+            "prob(X1, X2) :- error(X1, X2) and warn(X1, X2)",
+        ]
+    elif (prog_name == "SNOW"):
+        rules = [
+            "".join(["snow(X1, X2) :- time_win(", win_size, \
+                    ",0,1,diamond(p(X1, X2))) and time_win(",\
+                    win_size, ",0,1,box(q(X1, X2)))"]),
+        ]
+    elif (prog_name == "TRFC"):
+        rules = [
+            "".join(["warning(X1, X2) :- time_win(", win_size, ",0,1,diamond(p(X1, X2)))"]),
+            "".join(["stop(X1, X2) :- time_win(", win_size, ",0,1,box(q(X1, X2)))"]),
+            "jam(X1, X2) :- p(X1, X2) and q(X1, X2)",
         ]
     return rules 
 
