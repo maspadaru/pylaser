@@ -1,0 +1,67 @@
+============= 1. LARS - formulas =============
+Program: ATOM, win_size: 0
+Input: ../data/stream_1k_1k_1_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1000000
+Time: 2.010131 seconds
+Throughput: 496982564.078234 facts/sec
+************************************************************
+
+Program: CONJ, win_size: 0
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 500000
+Time: 3.022056 seconds
+Throughput: 330569640.679419 facts/sec
+************************************************************
+
+Program: DIA, win_size: 32
+Input: ../data/stream_1k_1k_1_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1000000
+Time: 8.918693 seconds
+Throughput: 112011930.375100 facts/sec
+************************************************************
+
+Program: BOX, win_size: 32
+Input: ../data/stream_1k_1k_1_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1000000
+Time: 16.115601 seconds
+Throughput: 61989620.871640 facts/sec
+************************************************************
+
+============= 2. LARS - Math =============
+Program: COMP, win_size: 0
+Input: ../data/stream_1k_1k_1_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 2000000
+Time: 6.344430 seconds
+Throughput: 157460954.688959 facts/sec
+************************************************************
+
+============= XX. Types of programs =============
+Program: PROB, win_size: 64
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1500000
+Time: 24.848816 seconds
+Throughput: 40203122.503412 facts/sec
+************************************************************
+
+Program: SNOW, win_size: 64
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 500000
+Time: 377.691924 seconds
+Throughput: 2645012.871334 facts/sec
+************************************************************
+
+Program: TRFC, win_size: 64
+Input: ../data/stream_1k_1k_2_2.txt
+Endtime: 999
+Facts: 1000000, Conclusions: 1500000
+Time: 25.154230 seconds
+Throughput: 39714990.095966 facts/sec
+************************************************************
+

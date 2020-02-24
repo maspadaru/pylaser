@@ -25,7 +25,7 @@ pypy bench.py COMP  0 ../data/stream_1k_1k_1_2.txt
 
 # =====================================================================
 
-#echo "============= XX. Types of programs ============="
+echo "============= XX. Types of programs ============="
 pypy bench.py PROB 64 ../data/stream_1k_1k_2_2.txt
 pypy bench.py SNOW 64 ../data/stream_1k_1k_2_2.txt
 pypy bench.py TRFC 64 ../data/stream_1k_1k_2_2.txt
