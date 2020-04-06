@@ -15,9 +15,25 @@ def get_rules(prog_name, win_size):
         rules = [
             "a(X1, X2) :- p(X1, X2)",
         ]
-    elif (prog_name == "CONJ"):
+    elif (prog_name == "CONJ2"):
         rules = [
             "a(X1,X2) :- p(X1, X2) and q(X1, X2)",
+        ]
+    elif (prog_name == "CONJ4"):
+        rules = [
+            "a(X1,X2) :- p(X1, X2) and q(X1, X2) and p(X1, X2) and q(X1, X2)",
+        ]
+    elif (prog_name == "CONJ8"):
+        rules = [
+            "a(X1,X2) :- p(X1, X2) and q(X1, X2) and p(X1, X2) and q(X1, X2) and p(X1, X2) and q(X1, X2) and p(X1, X2) and q(X1, X2) ",
+        ]
+    elif (prog_name == "CONJNOCOM"):
+        rules = [
+            "a(X1,X2,X3,X4) :- p(X1, X2) and q(X3, X4)",
+        ]
+    elif (prog_name == "CONJTRAN"):
+        rules = [
+            "p(X1,X3) :- p(X1, X2) and p(X2, X3)",
         ]
     elif (prog_name == "DIA"):
         rules = [
@@ -31,7 +47,7 @@ def get_rules(prog_name, win_size):
         rules = [
             "a(Y) :- p(X1, X2) and MATH(+,Y,X1,99)",
         ]
-    elif (prog_name == "COMP"):
+    elif (prog_name == "COND"):
         rules = [
             "a(X1, X2) :- p(X1, X2) and COMP(>=,X1,X2)",
             "b(X1, X2) :- p(X1, X2) and COMP(<=,X1,X2)",

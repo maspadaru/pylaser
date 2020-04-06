@@ -1,41 +1,41 @@
 #!/bin/bash
 
-# Benchmarking for thesis: Laser++ - vs Laser.py
+# Benchmarking for thesis: ARES - vs Laser.py
+
+LARS_DATA_DIR=../starbench/benchmark/data/lars
 
 echo "============= 1. LARS - formulas ============="
-pypy bench.py ATOM  0 ../data/stream_1k_1k_1_2.txt  
-pypy bench.py BOX  32 ../data/stream_1k_1k_1_2.txt  
-pypy bench.py DIA  32 ../data/stream_1k_1k_1_2.txt  
-pypy bench.py CONJ  0 ../data/stream_1k_1k_2_2.txt 
+pypy bench.py ATOM  0 $LARS_DATA_DIR/seq_1k_1k_1_2.stream  
+pypy bench.py BOX  32 $LARS_DATA_DIR/seq_1k_1k_1_2.stream  
+pypy bench.py DIA  32 $LARS_DATA_DIR/seq_1k_1k_1_2.stream  
 
-echo "============= 2. LARS - Math ============="
-pypy bench.py COMP  0 ../data/stream_100_100_1_2.txt  
+echo "============= 2. LARS - conjunction ============="
+pypy bench.py CONJ2  0 $LARS_DATA_DIR/seq_1k_1k_2_2.stream 
+pypy bench.py CONJ4  0 $LARS_DATA_DIR/seq_1k_1k_4_2.stream 
+pypy bench.py CONJ8  0 $LARS_DATA_DIR/seq_1k_1k_8_2.stream 
+pypy bench.py CONJNOCOM  0 $LARS_DATA_DIR/seq_10_100_2_2.stream 
+#pypy bench.py CONJTRAN  0 $LARS_DATA_DIR/seq_10_100_2_2.stream 
 
-#echo "============= 3. LARS - Laser++ Window Size ============="
-#pypy bench.py PROB  8 ../data/stream_1k_1k_2_2.txt 
-#pypy bench.py PROB 16 ../data/stream_1k_1k_2_2.txt 
-#pypy bench.py PROB 32 ../data/stream_1k_1k_2_2.txt
-#pypy bench.py PROB 64 ../data/stream_1k_1k_2_2.txt
 
-#echo "============= 4. LARS - Flow Rate ============="
-#pypy bench.py PROB 32 ../data/stream_10_100_2_2.txt 
-#pypy bench.py PROB 32 ../data/stream_10_1k_2_2.txt  
-#pypy bench.py PROB 32 ../data/stream_10_10k_2_2.txt 
-#pypy bench.py PROB 32 ../data/stream_10_100k_2_2.txt 
+echo "============= 3. LARS - Window Size ============="
+pypy bench.py SNOW  8 $LARS_DATA_DIR/seq_1k_1k_2_2.stream 
+pypy bench.py SNOW 16 $LARS_DATA_DIR/seq_1k_1k_2_2.stream 
+pypy bench.py SNOW 32 $LARS_DATA_DIR/seq_1k_1k_2_2.stream
+pypy bench.py SNOW 64 $LARS_DATA_DIR/seq_1k_1k_2_2.stream
+
+echo "============= 4. LARS - Flow Rate ============="
+pypy bench.py SNOW 32 $LARS_DATA_DIR/seq_1k_100_2_2.stream 
+pypy bench.py SNOW 32 $LARS_DATA_DIR/seq_1k_1k_2_2.stream  
+pypy bench.py SNOW 32 $LARS_DATA_DIR/seq_1k_10k_2_2.stream 
 
 # =====================================================================
 
+echo "============= X. LARS - Math ============="
+pypy bench.py ALGB  0 $LARS_DATA_DIR/seq_100_100_1_2.stream  
+pypy bench.py COND  0 $LARS_DATA_DIR/seq_100_100_1_2.stream  
+
 echo "============= XX. Types of programs ============="
-pypy bench.py PROB 64 ../data/stream_1k_1k_2_2.txt
-pypy bench.py TRFC 64 ../data/stream_1k_1k_2_2.txt
-pypy bench.py SNOW 64 ../data/stream_1k_1k_2_2.txt
+pypy bench.py PROB 64 $LARS_DATA_DIR/seq_100_1k_2_2.stream
+pypy bench.py TRFC 64 $LARS_DATA_DIR/seq_100_1k_2_2.stream
+pypy bench.py SNOW 64 $LARS_DATA_DIR/seq_100_1k_2_2.stream
 
-# Misc
-#pypy bench.py ALGB  0 ../data/stream_1k_1k_1_2.txt  
-
-# Correctness check
-#pypy bench.py ALGB  0 ../data/stream_3_6_1_2.txt  
-#pypy bench.py COMP  0 ../data/stream_3_6_1_2.txt  
-#pypy bench.py PROB 64 ../data/stream_3_6_2_2.txt
-#pypy bench.py SNOW 64 ../data/stream_3_6_2_2.txt
-#pypy bench.py TRFC 64 ../data/stream_3_6_2_2.txt
